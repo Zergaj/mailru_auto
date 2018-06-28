@@ -1,5 +1,4 @@
 from pages.page import Page
-from selenium.webdriver.common.by import By
 
 
 class MainPage(Page):
@@ -10,22 +9,22 @@ class MainPage(Page):
     login_button_locator = '//*[@id="mailbox:submit"]'
 
     def login_field(self):
-        return self.driver.find_element_by_xpath(self.login_field_locator)
+        return self.element(self.login_field_locator)
 
     def password_field(self):
-        return self.driver.find_element_by_xpath(self.password_field_locator)
+        return self.element(self.password_field_locator)
 
     def login_button(self):
-        return self.driver.find_element_by_xpath(self.login_button_locator)
+        return self.element(self.login_button_locator)
 
     def is_login_form_visible(self):
-        return self.is_element_visible((By.XPATH, self.login_form_locator))
+        return self.is_element_visible(self.login_form_locator)
 
     def is_login_field_visible(self):
-        return self.is_element_visible((By.XPATH, self.login_field_locator))
+        return self.is_element_visible(self.login_field_locator)
 
     def is_password_field_visible(self):
-        return self.is_element_visible((By.XPATH, self.password_field_locator))
+        return self.is_element_visible(self.password_field_locator)
 
     def is_login_button_visible(self):
-        return self.is_element_visible((By.XPATH, self.login_button_locator))
+        return self.is_element_visible(self.login_button_locator)

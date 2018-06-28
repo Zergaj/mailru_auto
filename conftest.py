@@ -1,5 +1,5 @@
 from _pytest.fixtures import fixture
-from selenium import webdriver
+from model.browser import Browser
 from model.application import Application
 
 import pytest
@@ -24,11 +24,7 @@ def base_url(request):
 
 @fixture(scope="session")
 def base(browser_type, base_url):
-    driver = None
-    if browser_type == "firefox":
-        driver = webdriver.Firefox()
-    elif browser_type == "chrome":
-        driver = webdriver.Chrome()
+    driver = Browser.create(browser_type)
     driver.maximize_window()
     yield Application(driver, base_url)
     driver.close()

@@ -1,5 +1,4 @@
 from pages.page import Page
-from selenium.webdriver.common.by import By
 
 
 class ComposePage(Page):
@@ -12,31 +11,31 @@ class ComposePage(Page):
     send_button_locator = '//*[@data-name="send"]'
 
     def is_send_form_visible(self):
-        return self.is_element_visible((By.XPATH, self.send_form_locator))
+        return self.is_element_visible(self.send_form_locator)
 
     def is_to_field_visible(self):
-        return self.is_element_visible((By.XPATH, self.to_field_locator))
+        return self.is_element_visible(self.to_field_locator)
 
     def is_subject_field_visible(self):
-        return self.is_element_visible((By.XPATH, self.subject_field_locator))
+        return self.is_element_visible(self.subject_field_locator)
 
     def is_editor_visible(self):
-        return self.is_element_visible((By.XPATH, self.editor_locator))
+        return self.is_element_visible(self.editor_locator)
 
     def is_send_button_visible(self):
-        return self.is_element_visible((By.XPATH, self.send_button_locator))
+        return self.is_element_visible(self.send_button_locator)
 
     def to_field(self):
-        return self.driver.find_element_by_xpath(self.to_field_locator)
+        return self.element(self.to_field_locator)
 
     def subject_field(self):
-        return self.driver.find_element_by_xpath(self.subject_field_locator)
+        return self.element(self.subject_field_locator)
 
     def body_field(self):
-        return self.driver.find_element_by_xpath(self.editor_locator)
+        return self.element(self.editor_locator)
 
     def send_button(self):
-        return self.driver.find_element_by_xpath(self.send_button_locator)
+        return self.element(self.send_button_locator)
 
     def switch_to_editor_iframe(self):
         iframe_id = ''
