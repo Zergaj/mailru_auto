@@ -23,9 +23,9 @@ class Application(object):
 
     def login(self, user):
         if self.main_page.is_login_field_visible():
-            self.main_page.login_field().send_keys(user.login)
+            self.main_page.login_field().send_keys(user[0])
         if self.main_page.is_password_field_visible():
-            self.main_page.password_field().send_keys(user.password)
+            self.main_page.password_field().send_keys(user[1])
         if self.main_page.is_login_button_visible():
             self.main_page.login_button().click()
 
@@ -41,12 +41,12 @@ class Application(object):
 
     def send_email(self, email):
         if self.compose_page.is_to_field_visible():
-            self.compose_page.to_field().send_keys(email.email)
+            self.compose_page.to_field().send_keys(email[0])
         if self.compose_page.is_subject_field_visible():
-            self.compose_page.subject_field().send_keys(email.subject)
+            self.compose_page.subject_field().send_keys(email[1])
         if self.compose_page.is_editor_visible():
             self.compose_page.switch_to_editor_iframe()
-            self.editor_iframe.body_field().send_keys(email.body)
+            self.editor_iframe.body_field().send_keys(email[2])
             self.compose_page.switch_from_editor_iframe()
         if self.compose_page.is_send_button_visible():
             self.compose_page.send_button().click()

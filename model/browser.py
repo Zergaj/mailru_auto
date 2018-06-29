@@ -1,7 +1,7 @@
 from selenium import webdriver
 
 
-class Browser():
+class Browser:
     def __init__(self, type):
         self.type = type
 

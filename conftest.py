@@ -24,7 +24,7 @@ def base_url(request):
 
 @fixture(scope="session")
 def base(browser_type, base_url):
-    driver = Browser.create(browser_type)
+    driver = Browser(browser_type).create()
     driver.maximize_window()
     yield Application(driver, base_url)
     driver.close()
